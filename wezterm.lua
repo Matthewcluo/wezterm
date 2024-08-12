@@ -73,6 +73,11 @@ config.keys = {
 			mode = "SwapWithActive",
 		}),
 	},
+	{
+		key = "\r",
+		mods = "CTRL",
+		action = act.TogglePaneZoomState,
+	},
 }
 
 -- and finally, return the configuration to wezterm
