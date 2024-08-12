@@ -18,19 +18,44 @@ config.initial_cols = 144
 config.initial_rows = 36
 
 -- Keybinds for splitting panes
--- local act = wezterm.action
--- config.keys = {
--- 	{
--- 		key = "-",
--- 		mods = "SHIFT|ALT",
--- 		action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
--- 	},
--- 	{
--- 		key = "=",
--- 		mods = "SHIFT|ALT",
--- 		action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
--- 	},
--- }
+local act = wezterm.action
+config.keys = {
+	{
+		key = "-",
+		mods = "CTRL",
+		action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
+	},
+	{
+		key = "=",
+		mods = "CTRL",
+		action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+	},
+	{
+		key = "w",
+		mods = "CMD",
+		action = act.CloseCurrentPane({ confirm = true }),
+	},
+	{
+		key = "h",
+		mods = "CTRL",
+		action = act.ActivatePaneDirection("Left"),
+	},
+	{
+		key = "l",
+		mods = "CTRL",
+		action = act.ActivatePaneDirection("Right"),
+	},
+	{
+		key = "k",
+		mods = "CTRL",
+		action = act.ActivatePaneDirection("Up"),
+	},
+	{
+		key = "j",
+		mods = "CTRL",
+		action = act.ActivatePaneDirection("Down"),
+	},
+}
 
 -- and finally, return the configuration to wezterm
 return config
