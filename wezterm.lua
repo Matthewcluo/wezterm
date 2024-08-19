@@ -14,8 +14,8 @@ config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
 
-config.initial_cols = 144
-config.initial_rows = 36
+config.initial_cols = 128
+config.initial_rows = 32
 
 -- Keybinds for splitting panes
 local act = wezterm.action
