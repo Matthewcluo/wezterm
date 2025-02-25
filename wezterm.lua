@@ -22,7 +22,7 @@ config.use_fancy_tab_bar = false
 config.initial_cols = 128
 config.initial_rows = 32
 
--- Keybinds for splitting panes
+-- Keybinds
 local act = wezterm.action
 config.keys = {
 	-- Pane Creation
@@ -87,7 +87,11 @@ config.keys = {
 		action = act.AdjustPaneSize({ "Down", 1 }),
 	},
 	-- activate pane selection mode with the default alphabet (labels are "a", "s", "d", "f" and so on)
-	{ key = "8", mods = "CTRL", action = act.PaneSelect },
+	{
+		key = "8",
+		mods = "CTRL",
+		action = act.PaneSelect,
+	},
 	-- activate pane selection mode with numeric labels
 	{
 		key = "9",
@@ -108,6 +112,12 @@ config.keys = {
 		key = "\r",
 		mods = "CTRL",
 		action = act.TogglePaneZoomState,
+	},
+	-- Reset Font and Window Size (mainly when opening WezTerm on a second monitor)
+	{
+		key = "\\",
+		mods = "CTRL",
+		action = act.ResetFontAndWindowSize,
 	},
 }
 
