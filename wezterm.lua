@@ -10,6 +10,8 @@ config.color_scheme = "tokyonight_night"
 
 config.font_size = 16
 
+config.max_fps = 240
+
 -- disables ligature and other font features
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
