@@ -23,40 +23,66 @@ config.initial_rows = 32
 -- Keybinds for splitting panes
 local act = wezterm.action
 config.keys = {
-	{
+	-- Pane Creation
+	{ -- Splits Vertically; creates 2 Horizontal Splits : BORGUIR
 		key = "-",
 		mods = "CTRL",
 		action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
 	},
-	{
+	{ -- Splits Horizontally; creates 2 Vertical Splits : HAWT DAWG
 		key = "=",
 		mods = "CTRL",
 		action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 	},
+	-- Pane/Tab/Window Deletion (in that order)
 	{
 		key = "w",
 		mods = "CMD",
 		action = act.CloseCurrentPane({ confirm = true }),
 	},
-	{
+	-- Left-ward pane controls
+	{ -- moves focus one pane to the left
 		key = "h",
 		mods = "CTRL",
 		action = act.ActivatePaneDirection("Left"),
 	},
-	{
+	{ -- shifts current pane's size to the left
+		key = "H",
+		mods = "CTRL",
+		action = act.AdjustPaneSize({ "Left", 1 }),
+	},
+	-- Right-ward pane controls
+	{ -- moves focus one pane to the right
 		key = "l",
 		mods = "CTRL",
 		action = act.ActivatePaneDirection("Right"),
 	},
-	{
+	{ -- shifts current pane's size to the right
+		key = "L",
+		mods = "CTRL",
+		action = act.AdjustPaneSize({ "Right", 1 }),
+	},
+	-- Up-ward pane controls
+	{ -- moves focus one pane up
 		key = "k",
 		mods = "CTRL",
 		action = act.ActivatePaneDirection("Up"),
 	},
-	{
+	{ -- shifts current pane's size one block up
+		key = "K",
+		mods = "CTRL",
+		action = act.AdjustPaneSize({ "Up", 1 }),
+	},
+	-- Down-ward pane controls
+	{ -- moves focus one pane down
 		key = "j",
 		mods = "CTRL",
 		action = act.ActivatePaneDirection("Down"),
+	},
+	{ -- shifts current pane's size one block down
+		key = "J",
+		mods = "CTRL",
+		action = act.AdjustPaneSize({ "Down", 1 }),
 	},
 	-- activate pane selection mode with the default alphabet (labels are "a", "s", "d", "f" and so on)
 	{ key = "8", mods = "CTRL", action = act.PaneSelect },
